@@ -559,10 +559,10 @@ body{
     </div>
 
 </header>
-
+<section class="page active" id="dashboard">
 <!-- WELCOME -->
 <div class="welcome">
-    <h2>Welcome back, Bhumika Belwal!</h2>
+    <h2>Welcome back, Kaif Ali!</h2>
     <div class="refresh" onclick="location.reload()">⟳</div>
 </div>
 
@@ -572,7 +572,7 @@ body{
     <div class="avatar">👤</div>
 
     <div class="profile-info">
-        <h2>Bhumika Belwal</h2>
+        <h2>Kaif Ali</h2>
 
         <button class="skills-btn"
         onclick="alert('Skills Mastery')">
@@ -584,7 +584,6 @@ body{
 
 <!-- EARNING DASHBOARD -->
 <div class="dashboard">
-
     <!-- TODAY -->
     <div class="stat-card card-gray">
         <h1>₹0</h1>
@@ -638,7 +637,7 @@ body{
     </div>
 
 </div>
-
+</section>
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav">
 
@@ -663,7 +662,7 @@ body{
     </h2>
 
     <button onclick="goHome()">🏠 Home</button>
-    <button onclick="alert('My Profile')">👤 My Profile</button>
+<button onclick="showPage('profile')">👤 My Profile</button>
     <button onclick="alert('My Earnings')">💰 My Earnings</button>
     <button onclick="alert('Skills Mastery')">🎓 Skills Mastery</button>
     <button onclick="alert('Settings')">⚙️ Settings</button>
@@ -691,14 +690,30 @@ function closeMenu(){
 }
 
 function goHome(){
+    showPage('dashboard');
+}
+function showPage(id){
+
+    document.querySelectorAll(".page").forEach(function(page){
+        page.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
     closeMenu();
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 }
+    document.querySelectorAll(".nav[data-page]").forEach(function(nav){
 
+    nav.onclick = function(){
+        showPage(nav.dataset.page);
+    };
+
+});
 </script>
 
 </body>
