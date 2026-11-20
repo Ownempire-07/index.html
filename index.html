@@ -410,6 +410,136 @@ body{
         font-size:14px;
     }
 }
+/* PROFILE PAGE */
+.profile-page{
+    background:#f0f8f6;
+    padding:10px 0;
+}
+
+.profile-title{
+    text-align:center;
+    font-size:27px;
+    color:#526875;
+    padding:20px 0 35px;
+    border-bottom:2px solid #dce9e5;
+    margin-bottom:30px;
+}
+
+.profile-box{
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #e5e9e7;
+}
+
+.profile-top{
+    background:#080832;
+    color:white;
+    padding:35px 20px 30px;
+    text-align:center;
+}
+
+.profile-avatar{
+    width:180px;
+    height:180px;
+    background:#f7fffc;
+    border:8px solid #dce5e5;
+    border-radius:50%;
+    margin:0 auto 25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:80px;
+    position:relative;
+}
+
+.verified{
+    position:absolute;
+    right:-3px;
+    bottom:15px;
+    background:#16c777;
+    color:#fff;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.profile-top h2{
+    font-size:25px;
+    margin:10px 0;
+}
+
+.profile-email{
+    color:#8992b4;
+    font-size:16px;
+    word-break:break-word;
+}
+
+.profile-details{
+    padding:10px 15px;
+}
+
+.profile-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    min-height:75px;
+    border-bottom:1px solid #e8eeee;
+    padding:12px 5px;
+}
+
+.profile-label{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    color:#607987;
+    font-size:17px;
+}
+
+.profile-icon{
+    width:30px;
+    font-size:21px;
+}
+
+.profile-value{
+    text-align:right;
+    font-size:16px;
+    font-weight:600;
+    color:#293b47;
+    word-break:break-word;
+}
+
+.copy-code{
+    border:0;
+    background:transparent;
+    font-size:22px;
+    cursor:pointer;
+    margin-left:5px;
+}
+
+@media(max-width:450px){
+    .profile-avatar{
+        width:155px;
+        height:155px;
+    }
+
+    .profile-row{
+        min-height:70px;
+    }
+
+    .profile-label{
+        font-size:15px;
+    }
+
+    .profile-value{
+        font-size:14px;
+    }
+}    
 </style>
 </head>
 
@@ -574,18 +704,99 @@ function goHome(){
 </body>
 </html>
 <section class="page" id="profile">
-<h2 class="page-title">My Profile</h2>
-<div class="panel">
-<h3>Personal Information</h3>
-<label>Full Name</label>
-<input id="name" placeholder="Enter your name">
-<label>Email Address</label>
-<input id="email" type="email" placeholder="Enter email">
-<label>Mobile Number</label>
-<input placeholder="Enter mobile number">
-<button class="btn" onclick="saveProfile()">Save Profile</button>
-<p id="profileMsg"></p>
-</div>
+
+    <div class="profile-page">
+
+        <h2 class="profile-title">Profile</h2>
+
+        <div class="profile-box">
+
+            <!-- PROFILE HEADER -->
+            <div class="profile-top">
+
+                <div class="profile-avatar">
+                    👤
+                    <div class="verified">✓</div>
+                </div>
+
+                <h2>Kaif Ali</h2>
+
+                <div class="profile-email">
+                    kaifali@example.com
+                </div>
+
+            </div>
+
+            <!-- PROFILE DETAILS -->
+            <div class="profile-details">
+
+                <!-- REF CODE -->
+                <div class="profile-row">
+
+                    <div class="profile-label">
+                        <span class="profile-icon">☑</span>
+                        Ref Code
+                    </div>
+
+                    <div class="profile-value">
+                        <span id="myRefCode">DG-20869</span>
+
+                        <button class="copy-code"
+                        onclick="copyProfileCode()">
+                        ▢
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- PACKAGE -->
+                <div class="profile-row">
+
+                    <div class="profile-label">
+                        <span class="profile-icon">♧</span>
+                        Package
+                    </div>
+
+                    <div class="profile-value">
+                        Skills Mastery
+                    </div>
+
+                </div>
+
+                <!-- KYC -->
+                <div class="profile-row">
+
+                    <div class="profile-label">
+                        <span class="profile-icon">▤</span>
+                        KYC Status
+                    </div>
+
+                    <div class="profile-value" style="color:#16a36a">
+                        Approved
+                    </div>
+
+                </div>
+
+                <!-- SPONSOR -->
+                <div class="profile-row">
+
+                    <div class="profile-label">
+                        <span class="profile-icon">♙</span>
+                        Sponsor
+                    </div>
+
+                    <div class="profile-value">
+                        Digital Gang
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 <section class="page" id="affiliate">
@@ -746,6 +957,17 @@ document.getElementById('profileMsg').textContent='Profile updated successfully.
 document.getElementById('profileMsg').textContent='Please enter your name.';
 }
 }
+function copyProfileCode(){
+    let code = document.getElementById("myRefCode").textContent;
+
+    navigator.clipboard.writeText(code)
+    .then(()=>{
+        alert("Referral Code Copied: " + code);
+    })
+    .catch(()=>{
+        alert("Your Referral Code: " + code);
+    });
+}    
 </script>
 </body>
 </html>
