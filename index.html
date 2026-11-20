@@ -600,6 +600,42 @@ body{
     display: block;
     margin-bottom: 12px;
 }
+
+/* Affiliate Marketing Center Design */
+
+.course-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    padding: 15px;
+}
+
+.course-feature .course-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin: 0;
+}
+
+.course-feature .course-info {
+    width: 100%;
+    text-align: center;
+}
+
+.course-feature .course-info strong {
+    display: block;
+    text-align: center;
+    font-size: 17px;
+}
+
+.course-feature .btn {
+    margin: 0 auto;
+}
+    
 </style>
 </head>
 
@@ -891,14 +927,20 @@ function showPage(id){
 <section class="page" id="courses">
 <h2 class="page-title">Courses</h2>
 <div class="panel">
-<div class="item">
-    <img src="01-affiliate-marketing.jpg" class="course-image">
+<div class="item course-feature">
 
-    <div>
+    <img src="01-affiliate-marketing.jpg"
+         class="course-image"
+         alt="Affiliate Marketing">
+
+    <div class="course-info">
         <strong>Affiliate Marketing</strong>
     </div>
 
-    <button class="btn" onclick="openLesson('affiliate')">Start Now</button>
+    <button class="btn" onclick="openLesson('affiliate')">
+        Start Now
+    </button>
+
 </div>
 <div class="item"><div><strong>Lead Generation</strong><small>Learn lead generation strategies</small></div><button class="btn" onclick="alert('Course details will be available soon.')">View</button></div>
 <div class="item"><div><strong>Video Editing</strong><small>Improve your editing skills</small></div><button class="btn" onclick="openLesson('affiliate')">View</button></div>
