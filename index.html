@@ -591,6 +591,12 @@ body{
     line-height:1.35;
     margin:0;
 }   
+.course-image {
+    width: 75px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 10px;
+}    
 </style>
 </head>
 
@@ -882,7 +888,16 @@ function showPage(id){
 <section class="page" id="courses">
 <h2 class="page-title">Courses</h2>
 <div class="panel">
-<div class="item"><div><strong>Affiliate Marketing</strong><small>Learn the basics of affiliate marketing</small></div><button class="btn" onclick="alert('Course details will be available soon.')">View</button></div>
+<div class="item">
+    <img src="01-affiliate-marketing.jpg" class="course-image">
+
+    <div>
+        <strong>Affiliate Marketing</strong>
+        <small>Learn the basics of affiliate marketing</small>
+    </div>
+
+    <button class="btn" onclick="openLesson('affiliate')">View</button>
+</div>
 <div class="item"><div><strong>Lead Generation</strong><small>Learn lead generation strategies</small></div><button class="btn" onclick="alert('Course details will be available soon.')">View</button></div>
 <div class="item"><div><strong>Video Editing</strong><small>Improve your editing skills</small></div><button class="btn" onclick="openLesson('affiliate')">View</button></div>
 </div>
